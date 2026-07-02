@@ -1,0 +1,7 @@
+Department,Category,Contact Type,Quality,Confidence,Name,First Name,Last Name,Title,Email,Generic Email,Phone,Office,Source URL,Date Collected,Notes
+Chemistry & Biochemistry,Faculty,Faculty,Needs Review,50,,,,Email:,chemist@sfsu.edu,No,,,https://chemistry.sfsu.edu/faculty/,2026-07-02,Generic parser v1.0
+Computer Science,People,Unknown,Needs Review,50,,,,Email:,cs-dept@sfsu.edu,Yes,,,https://cs.sfsu.edu/people,2026-07-02,Generic parser v1.0 Generic departmental email; do not treat as personal contact.
+Physics & Astronomy,Faculty,Faculty,Needs Review,50,,,,Email:,physics@sfsu.edu,Yes,,,https://physics.sfsu.edu/faculty,2026-07-02,Generic parser v1.0 Generic departmental email; do not treat as personal contact.
+Psychology,Faculty & Staff,Staff,Partial,55,"Dr. G. Cox,",,Dr. G. Cox,,gs74@sfsu.edu,No,,,https://psychology.sfsu.edu/faculty-staff,2026-07-02,Psychology parser v0.5
+Psychology,Faculty & Staff,Staff,Partial,55,Dr. R. Bowler,Dr. R.,Bowler,,rbowl@sfsu.edu,No,,,https://psychology.sfsu.edu/faculty-staff,2026-07-02,Psychology parser v0.5
+Psychology,Faculty & Staff,Staff,Partial,55,Dr. R. Fresco,Dr. R.,Fresco,,lkroeker@sfsu.edu,No,,,https://psychology.sfsu.edu/faculty-staff,2026-07-02,Psychology parser v0.5

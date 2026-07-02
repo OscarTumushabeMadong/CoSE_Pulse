@@ -1,0 +1,51 @@
+Department,Category,Contact Type,Quality,Confidence,Name,First Name,Last Name,Title,Email,Generic Email,Phone,Office,Source URL,Date Collected,Notes
+Chemistry & Biochemistry,Faculty,Department Chair,Clean,90,Andrew Ichimura,Andrew,Ichimura,Associate Professor,ichimura@sfsu.edu,No,(415) 405-0721,,https://chemistry.sfsu.edu/faculty/,2026-07-02,Generic parser v1.0
+College of Science & Engineering,Dean's Office,Dean,Clean,80,Adria O'Dea,Adria,O'Dea,Coordinator,adria@sfsu.edu,No,,,https://cose.sfsu.edu/contact-us,2026-07-02,
+College of Science & Engineering,Dean's Office,Dean,Clean,80,Carmen Domingo,Carmen,Domingo,Dean of College of Science & Engineering,cdomingo@sfsu.edu,No,,,https://cose.sfsu.edu/contact-us,2026-07-02,
+College of Science & Engineering,Dean's Office,Dean,Clean,90,Caroline Alcantara,Caroline,Alcantara,Assistant to the Dean,caroline@sfsu.edu,No,(415) 338-7660,,https://cose.sfsu.edu/contact-us,2026-07-02,
+College of Science & Engineering,Dean's Office,Dean,Clean,85,Crystal Kam,Crystal,Kam,College Business Officer,crystalk@sfsu.edu,No,(415) 338-2427,,https://cose.sfsu.edu/contact-us,2026-07-02,
+College of Science & Engineering,Dean's Office,Dean,Clean,80,Dominic Sciucchetti,Dominic,Sciucchetti,Coordinator,dominics@sfsu.edu,No,,,https://cose.sfsu.edu/contact-us,2026-07-02,
+College of Science & Engineering,Dean's Office,Dean,Clean,80,Elizabeth Detrich,Elizabeth,Detrich,Analyst,edetrich@sfsu.edu,No,,,https://cose.sfsu.edu/contact-us,2026-07-02,
+College of Science & Engineering,Dean's Office,Dean,Clean,80,Holly Fincke,Holly,Fincke,Director,hollyfincke@sfsu.edu,No,,,https://cose.sfsu.edu/contact-us,2026-07-02,
+College of Science & Engineering,Dean's Office,Dean,Clean,85,Jennifer Mueller,Jennifer,Mueller,Personnel Officer,muellerj@sfsu.edu,No,(415) 338-7659,,https://cose.sfsu.edu/contact-us,2026-07-02,
+College of Science & Engineering,Dean's Office,Dean,Clean,80,Jenny Tu,Jenny,Tu,Analyst,jennytu@sfsu.edu,No,,,https://cose.sfsu.edu/contact-us,2026-07-02,
+College of Science & Engineering,Dean's Office,Dean,Clean,90,Lannie Nguyen,Lannie,Nguyen,Administrative & Events Assistant,lannie@sfsu.edu,No,(415) 338-7662,,https://cose.sfsu.edu/contact-us,2026-07-02,
+College of Science & Engineering,Dean's Office,Dean,Clean,90,Lynne Hoang,Lynne,Hoang,Analyst,lynnethi@sfsu.edu,No,(415) 338-7696,,https://cose.sfsu.edu/contact-us,2026-07-02,
+College of Science & Engineering,Dean's Office,Dean,Clean,80,Minling Zhang,Minling,Zhang,Analyst,mzhang8@sfsu.edu,No,,,https://cose.sfsu.edu/contact-us,2026-07-02,
+College of Science & Engineering,Dean's Office,Dean,Clean,80,Nam Pham,Nam,Pham,Specialist,npham9@sfsu.edu,No,,,https://cose.sfsu.edu/contact-us,2026-07-02,
+College of Science & Engineering,Dean's Office,Dean,Clean,80,Nicholas Christopher Kincaid,Nicholas Christopher,Kincaid,Specialist,nicholas@sfsu.edu,No,,,https://cose.sfsu.edu/contact-us,2026-07-02,
+College of Science & Engineering,Dean's Office,Dean,Clean,90,Queenie Cheng,Queenie,Cheng,Analyst,qcheng@sfsu.edu,No,(415) 405-3771,,https://cose.sfsu.edu/contact-us,2026-07-02,
+College of Science & Engineering,Dean's Office,Dean,Clean,80,Ron Marzke,Ron,Marzke,Associate Dean of College of Science & Engineering,marzke@sfsu.edu,No,,,https://cose.sfsu.edu/contact-us,2026-07-02,
+College of Science & Engineering,Dean's Office,Dean,Clean,80,Teaster Baird,Teaster,Baird,Associate Dean of College of Science & Engineering,tbaird@sfsu.edu,No,,,https://cose.sfsu.edu/contact-us,2026-07-02,
+College of Science & Engineering,Dean's Office,Dean,Clean,90,Tracy Thai,Tracy,Thai,Specialist,tthai@sfsu.edu,No,(415) 338-7695,,https://cose.sfsu.edu/contact-us,2026-07-02,
+Physics & Astronomy,Faculty,Dean,Clean,90,Faculty,Faculty,,Associate Professor,barranco@sfsu.edu,No,(415) 338-2450,,https://physics.sfsu.edu/faculty,2026-07-02,Generic parser v1.0
+Psychology,Faculty & Staff,Staff,Clean,100,"Bunge, Sacha",Sacha,Bunge,Professor,sbunge@sfsu.edu,No,(415) 338-1846,HSS 359,https://psychology.sfsu.edu/faculty-staff,2026-07-02,Psychology parser v0.5
+Psychology,Faculty & Staff,Staff,Clean,100,"Cookston, Jeff",Jeff,Cookston,Professor,cookston@sfsu.edu,No,(415) 405-2132,EP 503B,https://psychology.sfsu.edu/faculty-staff,2026-07-02,Psychology parser v0.5
+Psychology,Faculty & Staff,Staff,Clean,90,"Eschleman, Kevin",Kevin,Eschleman,Professor,kesch@sfsu.edu,No,(415) 338-1030,,https://psychology.sfsu.edu/faculty-staff,2026-07-02,Psychology parser v0.5
+Psychology,Faculty & Staff,Staff,Clean,100,"Fields, Christopher",Christopher,Fields,Coordinator,cfields5@sfsu.edu,No,(415) 338-2711,EP 301,https://psychology.sfsu.edu/faculty-staff,2026-07-02,Psychology parser v0.5
+Psychology,Faculty & Staff,Staff,Clean,100,"Gard, David",David,Gard,Professor,dgard@sfsu.edu,No,(415) 338-1440,EP 241,https://psychology.sfsu.edu/faculty-staff,2026-07-02,Psychology parser v0.5
+Psychology,Faculty & Staff,Staff,Clean,100,"Geisler, Mark",Mark,Geisler,Professor,mgeisler@sfsu.edu,No,(415) 338-6026,EP 325,https://psychology.sfsu.edu/faculty-staff,2026-07-02,Psychology parser v0.5
+Psychology,Faculty & Staff,Staff,Clean,100,"Hagan, Melissa",Melissa,Hagan,Professor,mjhagan@sfsu.edu,No,(415) 338-2210,EP 239,https://psychology.sfsu.edu/faculty-staff,2026-07-02,Psychology parser v0.5
+Psychology,Faculty & Staff,Staff,Clean,100,"Harris, Diane",Diane,Harris,Professor,dharris@sfsu.edu,No,(415) 338-7064,EP 234,https://psychology.sfsu.edu/faculty-staff,2026-07-02,Psychology parser v0.5
+Psychology,Faculty & Staff,Staff,Clean,100,"Holley, Sarah",Sarah,Holley,Professor,sholley@sfsu.edu,No,(415) 405-0760,EP 236,https://psychology.sfsu.edu/faculty-staff,2026-07-02,Psychology parser v0.5
+Psychology,Faculty & Staff,Staff,Clean,100,"Howell, Ryan",Ryan,Howell,Professor,schen9@sfsu.edu,No,(415) 338-7555,EP 202,https://psychology.sfsu.edu/faculty-staff,2026-07-02,Psychology parser v0.5
+Psychology,Faculty & Staff,Staff,Clean,100,"Ihorn, Shasta",Shasta,Ihorn,Professor,sihorn@sfsu.edu,No,(415) 338-3218,EP 237,https://psychology.sfsu.edu/faculty-staff,2026-07-02,Psychology parser v0.5
+Psychology,Faculty & Staff,Staff,Clean,90,"Karras, Juliana",Juliana,Karras,Professor,jkarras@sfsu.edu,No,(415) 405-3417,,https://psychology.sfsu.edu/faculty-staff,2026-07-02,Psychology parser v0.5
+Psychology,Faculty & Staff,Staff,Clean,90,"Kim, John J.",John J.,Kim,Professor,johnjkim@sfsu.edu,No,,EP 421,https://psychology.sfsu.edu/faculty-staff,2026-07-02,Psychology parser v0.5
+Psychology,Faculty & Staff,Staff,Clean,100,"Liu, Shuyi",Shuyi,Liu,Professor,shuyil@sfsu.edu,No,(415) 338-7546,EP 235,https://psychology.sfsu.edu/faculty-staff,2026-07-02,Psychology parser v0.5
+Psychology,Faculty & Staff,Staff,Clean,100,"Matsumoto, David",David,Matsumoto,Professor,dm@sfsu.edu,No,(415) 338-1114,EP 328,https://psychology.sfsu.edu/faculty-staff,2026-07-02,Psychology parser v0.5
+Psychology,Faculty & Staff,Staff,Clean,100,"Mello, Zena",Zena,Mello,Professor,zmello@sfsu.edu,No,(415) 338-7557,EP 309,https://psychology.sfsu.edu/faculty-staff,2026-07-02,Psychology parser v0.5
+Psychology,Faculty & Staff,Staff,Clean,90,"Morsella, Ezequiel",Ezequiel,Morsella,Professor,morsella@sfsu.edu,No,,EP 324,https://psychology.sfsu.edu/faculty-staff,2026-07-02,Psychology parser v0.5
+Psychology,Faculty & Staff,Staff,Clean,100,"Paik, Jae",Jae,Paik,Professor,jaepaik@sfsu.edu,No,(415) 405-0577,EP 305,https://psychology.sfsu.edu/faculty-staff,2026-07-02,Psychology parser v0.5
+Psychology,Faculty & Staff,Staff,Clean,100,"Riley, Lauren",Lauren,Riley,Coordinator,lriley1@sfsu.edu,No,(415) 338-2856,EP 240,https://psychology.sfsu.edu/faculty-staff,2026-07-02,Psychology parser v0.5
+Psychology,Faculty & Staff,Staff,Clean,100,"Sanchez, Diana R.",Diana R.,Sanchez,Professor,sanchezdianar@sfsu.edu,No,(415) 338-1059,EP 507,https://psychology.sfsu.edu/faculty-staff,2026-07-02,Psychology parser v0.5
+Psychology,Faculty & Staff,Staff,Clean,100,"Singh, Anisha",Anisha,Singh,Professor,asingh56@sfsu.edu,No,(415) 338-1267,EP 327,https://psychology.sfsu.edu/faculty-staff,2026-07-02,Psychology parser v0.5
+Psychology,Faculty & Staff,Staff,Clean,100,"Smith, Amy",Amy,Smith,Professor,smithae@sfsu.edu,No,(415) 338-1275,EP 508,https://psychology.sfsu.edu/faculty-staff,2026-07-02,Psychology parser v0.5
+Psychology,Faculty & Staff,Staff,Clean,90,"Suri, Gaurav R.",Gaurav R.,Suri,Professor,suri@sfsu.edu,No,,EP 306,https://psychology.sfsu.edu/faculty-staff,2026-07-02,Psychology parser v0.5
+Psychology,Faculty & Staff,Staff,Clean,100,"Tate, Charlotte",Charlotte,Tate,Professor,ctate2@sfsu.edu,No,(415) 338-2267,EP 310,https://psychology.sfsu.edu/faculty-staff,2026-07-02,Psychology parser v0.5
+Psychology,Faculty & Staff,Staff,Clean,100,Vivian Toy,Vivian,Toy,Manager,viv@sfsu.edu,No,(415) 338-2714,EP 301,https://psychology.sfsu.edu/faculty-staff,2026-07-02,Psychology parser v0.5
+Psychology,Faculty & Staff,Staff,Clean,100,"Wolf, Jaclyn",Jaclyn,Wolf,Professor,jaclynwolf@sfsu.edu,No,(415) 338-1104,EP 238,https://psychology.sfsu.edu/faculty-staff,2026-07-02,Psychology parser v0.5
+Psychology,Faculty & Staff,Staff,Clean,100,"Wright, Chris",Chris,Wright,Professor,cwright@sfsu.edu,No,(415) 338-1465,EP 509,https://psychology.sfsu.edu/faculty-staff,2026-07-02,Psychology parser v0.5
+Psychology,Faculty & Staff,Staff,Clean,100,"Yang, Shiyu",Shiyu,Yang,Professor,shiyu.yang@sfsu.edu,No,(415) 338-2712,EP 202,https://psychology.sfsu.edu/faculty-staff,2026-07-02,Psychology parser v0.5
+School of Engineering,Faculty,Faculty,Clean,90,Director and Associate Director,Director and Associate,Director,Director,ksteh@sfsu.edu,No,,SEIC 311B,https://engineering.sfsu.edu/faculty,2026-07-02,
+School of Engineering,Staff,Staff,Clean,100,Raul Contreras III,Raul Contreras,III,Coordinator,raulc@sfsu.edu,No,(415) 338-1174,SEC 311A,https://engineering.sfsu.edu/staff,2026-07-02,
