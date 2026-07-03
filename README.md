@@ -1,4 +1,4 @@
-# SFSU CoSE Contact Scraper
+# CoSE Pulse
 
 An automated Python-based data collection system that extracts, validates, normalizes, and exports faculty and staff contact information from San Francisco State University's College of Science & Engineering and related academic departments.
 
