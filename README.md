@@ -1,5 +1,15 @@
 # CoSE Pulse
 
+![Python](https://img.shields.io/badge/Python-3.13-blue)
+
+![License: MIT](https://img.shields.io/badge/License-MIT-green)
+
+![Version](https://img.shields.io/badge/Version-1.0-blue)
+
+![Status](https://img.shields.io/badge/Status-Active-success)
+
+![Automation](https://img.shields.io/badge/Automation-AI%20Powered-purple)
+
 An intelligent automation platform for the College of Science & Engineering at San Francisco State University.
 
 ---
