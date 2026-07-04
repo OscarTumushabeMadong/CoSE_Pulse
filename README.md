@@ -1,8 +1,6 @@
 # CoSE Pulse
 
-![Python](https://img.shields.io/badge/Python-3.13-blue)
-
-![License: MIT](https://img.shields.io/badge/License-MIT-green)
+![Python](https://img.shields.io/badge/Python-3.13-blue) ![License: MIT](https://img.shields.io/badge/License-MIT-green)
 
 ![Version](https://img.shields.io/badge/Version-1.0-blue)
 
