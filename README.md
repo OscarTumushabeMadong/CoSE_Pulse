@@ -76,4 +76,3 @@ LibreOffice
 
 ## License
 
-MIT License
