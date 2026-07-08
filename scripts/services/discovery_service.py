@@ -6,43 +6,39 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DATABASE_DIR = PROJECT_ROOT / "scripts" / "database"
 DISCOVERY_DIR = PROJECT_ROOT / "scripts" / "discovery"
 
+if str(DATABASE_DIR) not in sys.path:
+    sys.path.insert(0, str(DATABASE_DIR))
+
 if str(DISCOVERY_DIR) not in sys.path:
     sys.path.insert(0, str(DISCOVERY_DIR))
 
-if str(DATABASE_DIR) not in sys.path:
-    sys.path.insert(0, str(DATABASE_DIR))
-    
-from repository import (
-    get_events,
-    get_high_priority_pages,
-    get_internships,
-    get_new_pages,
-    get_scholarships,
-    get_updated_pages,
-)
-
+from models import DiscoveryResult
 from crawl_engine import CrawlEngine
 from pipeline import process_discovery_results
+from repository import Repository
+
 
 class DiscoveryService:
+    def __init__(self, repository: Repository):
+        self.repository = repository
 
     def new_pages(self):
-        return get_new_pages()
+        return self.repository.get_new_pages()
 
     def updated_pages(self):
-        return get_updated_pages()
+        return self.repository.get_updated_pages()
 
     def events(self):
-        return get_events()
+        return self.repository.get_events()
 
     def scholarships(self):
-        return get_scholarships()
+        return self.repository.get_scholarships()
 
     def internships(self):
-        return get_internships()
+        return self.repository.get_internships()
 
     def high_priority(self, minimum=70):
-        return get_high_priority_pages(minimum)
+        return self.repository.get_high_priority_pages(minimum)
 
     def run_discovery(self, output_file, snapshot_file):
         engine = CrawlEngine()
@@ -54,4 +50,8 @@ class DiscoveryService:
             snapshot_file=snapshot_file,
         )
 
-        return rows_with_changes, engine.stats
+        return DiscoveryResult(
+            rows=rows,
+            rows_with_changes=rows_with_changes,
+            stats=engine.stats,
+        )

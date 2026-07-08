@@ -17,3 +17,9 @@ class FetchResult:
 class ProcessResult:
     row: dict
     links: list[str]
+
+@dataclass
+class DiscoveryResult:
+    rows: list[dict]
+    rows_with_changes: list[dict]
+    stats: object

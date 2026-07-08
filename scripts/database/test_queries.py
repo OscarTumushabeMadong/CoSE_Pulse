@@ -1,11 +1,6 @@
-from repository import (
-    get_events,
-    get_high_priority_pages,
-    get_internships,
-    get_new_pages,
-    get_scholarships,
-    get_updated_pages,
-)
+from repository import Repository
+
+repository = Repository()
 
 
 def show(label, rows):
@@ -20,12 +15,12 @@ def show(label, rows):
 
 
 def main():
-    show("New Pages", get_new_pages())
-    show("Updated Pages", get_updated_pages())
-    show("Events", get_events())
-    show("Scholarships", get_scholarships())
-    show("Internships", get_internships())
-    show("High Priority Pages", get_high_priority_pages())
+    show("New Pages", repository.get_new_pages())
+    show("Updated Pages", repository.get_updated_pages())
+    show("Events", repository.get_events())
+    show("Scholarships", repository.get_scholarships())
+    show("Internships", repository.get_internships())
+    show("High Priority Pages", repository.get_high_priority_pages())
 
 
 if __name__ == "__main__":

@@ -13,7 +13,7 @@ if str(DATABASE_DIR) not in sys.path:
 
 from change_detector import classify_changes, load_snapshot
 from exporter import save_discovered_pages
-from repository import insert_many
+from repository import Repository
 
 
 def process_discovery_results(
@@ -27,6 +27,7 @@ def process_discovery_results(
     save_discovered_pages(output_file, rows_with_changes)
     save_discovered_pages(snapshot_file, rows_with_changes)
 
-    insert_many(rows_with_changes)
+    repository = Repository()
+    repository.insert_many(rows_with_changes)
 
     return rows_with_changes

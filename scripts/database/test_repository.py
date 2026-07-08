@@ -1,4 +1,6 @@
-from repository import insert_page
+from repository import Repository
+
+repository = Repository()
 
 row = {
 
@@ -39,6 +41,6 @@ row = {
 
 }
 
-insert_page(row)
+repository.insert_page(row)
 
 print("Inserted successfully.")
