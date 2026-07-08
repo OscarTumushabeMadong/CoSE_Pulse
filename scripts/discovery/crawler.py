@@ -8,23 +8,11 @@ This module ONLY discovers pages. It does not parse contacts,
 events, scholarships, or other content.
 """
 
-import csv
 import sys
-import time
-from collections import deque
 from pathlib import Path
 
 
-import requests
 
-
-from fetcher import fetch_page
-
-from link_extractor import extract_links
-
-from pipeline import process_discovery_results
-
-from page_processor import process_page
 
 # ---------------------------------------------------------
 # Configure Python path
@@ -32,12 +20,19 @@ from page_processor import process_page
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 SCRIPTS_DIR = PROJECT_ROOT / "scripts"
+SERVICES_DIR = PROJECT_ROOT / "scripts" / "services"
 
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
 if str(SCRIPTS_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPTS_DIR))
+
+if str(SERVICES_DIR) not in sys.path:
+    sys.path.insert(0, str(SERVICES_DIR))
+
+from discovery_service import DiscoveryService
+from pipeline import process_discovery_results
 
 # ---------------------------------------------------------
 # Project imports
@@ -72,59 +67,9 @@ SNAPSHOT_FILE = OUTPUT_DIR / "snapshot.csv"
 
 
 def crawl() -> list[dict]:
-
-    queue = deque()
-
-    visited = set()
-
-    discovered_rows = []
-
-    for url in SEED_DOMAINS:
-        queue.append((normalize_url(url), 0))
-
-    while queue and len(visited) < MAX_PAGES:
-
-        url, depth = queue.popleft()
-
-        if url in visited:
-            continue
-
-        if depth > MAX_DEPTH:
-            continue
-
-        print(f"[Depth {depth}] {url}")
-
-        visited.add(url)
-
-        html, status = fetch_page(url)
-        
-        
-        if status != "Success":
-            print(f"{status} for {url}")
-
-        
-        row = process_page(
-            url=url, 
-            depth=depth, 
-            status=status, 
-            html=html,
-        )
-        
-        discovered_rows.append(row)
-
-        if html:
-
-            links = extract_links(url, html)
-
-            for link in sorted(links):
-
-                if link not in visited:
-
-                    queue.append((link, depth + 1))
-
-        time.sleep(REQUEST_DELAY)
-
-    return discovered_rows
+    engine = CrawlEngine()
+    return engine.run()
+    
 
 # ---------------------------------------------------------
 # Main
@@ -136,18 +81,21 @@ def main():
     print("CoSE Pulse Discovery Engine")
     print("=" * 60)
 
-    rows = crawl()
-    
-    rows_with_changes = process_discovery_results(
-        rows=rows,
+    service = DiscoveryService()
+
+    rows_with_changes, stats = service.run_discovery(
         output_file=DISCOVERED_PAGES_FILE,
         snapshot_file=SNAPSHOT_FILE,
     )
 
+    print(f"Pages processed : {stats.pages_processed}")
+    print(f"Successful pages : {stats.successful_pages}")
+    print(f"Failed pages     : {stats.failed_pages}")
+    print(f"Links discovered : {stats.links_discovered}")
+    print(f"Elapsed seconds  : {stats.elapsed:.2f}")
+
     print()
-    print("=" * 60)
-    print(f"Pages processed : {len(rows)}")
-    print(f"Saved to        : {DISCOVERED_PAGES_FILE}")
+    print(f"Saved CSV       : {DISCOVERED_PAGES_FILE}")
     print("Saved to SQLite : Success")
     print("=" * 60)
 

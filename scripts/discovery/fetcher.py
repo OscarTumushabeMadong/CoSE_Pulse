@@ -1,43 +1,57 @@
-"""
-HTTP fetching utilities for CoSE Pulse Discovery Engine.
-"""
 
+import time
 import sys
 from pathlib import Path
-
+import time
 import requests
 
-
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
+DATABASE_DIR = PROJECT_ROOT / "scripts" / "database"
 
-if str(PROJECT_ROOT) not in sys.path:
-    sys.path.insert(0, str(PROJECT_ROOT))
+if str(DATABASE_DIR) not in sys.path:
+    sys.path.insert(0, str(DATABASE_DIR))
 
+from models import FetchResult
 
-from config.settings import TIMEOUT, USER_AGENT
-
-
-def fetch_page(url: str) -> tuple[str, str]:
+def fetch_page(url: str, config) -> FetchResult:
     headers = {
-        "User-Agent": USER_AGENT
+        "User-Agent": config.user_agent
     }
+
+    start = time.perf_counter()
 
     try:
         response = requests.get(
             url,
             headers=headers,
-            timeout=TIMEOUT
+            timeout=config.timeout
         )
 
-        content_type = response.headers.get("Content-Type", "")
+        elapsed = time.perf_counter() - start
 
-        if response.status_code >= 400:
-            return "", f"HTTP {response.status_code}"
+        if response.status_code != 200:
+            return FetchResult(
+                url=url,
+                status=f"HTTP {response.status_code}",
+                html="",
+                response_time=elapsed,
+                error=response.reason,
+            )
 
-        if "text/html" not in content_type:
-            return "", "Non-HTML"
+        return FetchResult(
+            url=url,
+            status="Success",
+            html=response.text,
+            response_time=elapsed,
+        )
 
-        return response.text, "Success"
+    except requests.RequestException as error:
+        elapsed = time.perf_counter() - start
 
-    except requests.exceptions.RequestException as error:
-        return "", f"Request Error: {error}"
+        return FetchResult(
+            url=url,
+            status="Request Error",
+            html="",
+            response_time=elapsed,
+            error=str(error),
+        )

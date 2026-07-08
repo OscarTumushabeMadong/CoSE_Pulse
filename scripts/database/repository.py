@@ -94,3 +94,73 @@ def insert_many(rows):
 
     for row in rows:
         insert_page(row)
+
+def fetch_all(query: str, params: tuple = ()):
+    connection = get_connection()
+    connection.row_factory = lambda cursor, row: {
+        col[0]: row[idx]
+        for idx, col in enumerate(cursor.description)
+    }
+
+    cursor = connection.cursor()
+    cursor.execute(query, params)
+    rows = cursor.fetchall()
+
+    connection.close()
+    return rows
+
+
+def get_new_pages():
+    return fetch_all("""
+        SELECT *
+        FROM discovered_pages
+        WHERE change_status = 'New'
+        ORDER BY priority DESC
+    """)
+
+
+def get_updated_pages():
+    return fetch_all("""
+        SELECT *
+        FROM discovered_pages
+        WHERE change_status = 'Updated'
+        ORDER BY priority DESC
+    """)
+
+
+def get_events():
+    return fetch_all("""
+        SELECT *
+        FROM discovered_pages
+        WHERE category = 'Event'
+        ORDER BY priority DESC
+    """)
+
+
+def get_scholarships():
+    return fetch_all("""
+        SELECT *
+        FROM discovered_pages
+        WHERE category = 'Scholarship'
+           OR opportunity_type = 'Scholarship'
+        ORDER BY priority DESC
+    """)
+
+
+def get_internships():
+    return fetch_all("""
+        SELECT *
+        FROM discovered_pages
+        WHERE category = 'Internship'
+           OR opportunity_type = 'Internship'
+        ORDER BY priority DESC
+    """)
+
+
+def get_high_priority_pages(min_priority: int = 70):
+    return fetch_all("""
+        SELECT *
+        FROM discovered_pages
+        WHERE priority >= ?
+        ORDER BY priority DESC
+    """, (min_priority,))
