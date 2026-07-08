@@ -22,35 +22,49 @@ def process_page(
 ) -> dict:
     category, classification_confidence = classify_url(url)
 
-    content = extract_page_content(html) if html else {
-        "title": "",
-        "headings": [],
-        "paragraphs": [],
-    }
+    content = (
+        extract_page_content(html)
+        if html
+        else {
+            "title": "",
+            "headings": [],
+            "paragraphs": [],
+        }
+    )
 
-    metadata = extract_metadata(html) if html else {
-        "Page Title": "",
-        "H1": "",
-        "Meta Description": "",
-        "Canonical URL": "",
-        "Emails Found": "",
-        "Phones Found": "",
-        "Dates Found": "",
-    }
+    metadata = (
+        extract_metadata(html)
+        if html
+        else {
+            "Page Title": "",
+            "H1": "",
+            "Meta Description": "",
+            "Canonical URL": "",
+            "Emails Found": "",
+            "Phones Found": "",
+            "Dates Found": "",
+        }
+    )
 
-    opportunity = extract_opportunity_details(html, category) if html else {
-        "Opportunity Type": "",
-        "Deadline": "",
-        "Times Found": "",
-        "Amounts Found": "",
-        "Priority": "",
-    }
+    opportunity = (
+        extract_opportunity_details(html, category)
+        if html
+        else {
+            "Opportunity Type": "",
+            "Deadline": "",
+            "Times Found": "",
+            "Amounts Found": "",
+            "Priority": "",
+        }
+    )
 
-    priority_score = calculate_priority({
-        "Category": category,
-        "Opportunity Type": opportunity["Opportunity Type"],
-        "Deadline": opportunity["Deadline"],
-    })
+    priority_score = calculate_priority(
+        {
+            "Category": category,
+            "Opportunity Type": opportunity["Opportunity Type"],
+            "Deadline": opportunity["Deadline"],
+        }
+    )
 
     return build_discovered_row(
         url=url,

@@ -5,7 +5,7 @@ Processes a single page during crawling.
 from fetcher import fetch_page
 from link_extractor import extract_links
 from page_processor import process_page
-from models import FetchResult, ProcessResult
+from models import ProcessResult
 
 
 class CrawlWorker:
@@ -30,7 +30,4 @@ class CrawlWorker:
         if fetch_result.html:
             links = extract_links(url, fetch_result.html)
 
-        return ProcessResult(
-            row=row,
-            links=links
-        )
+        return ProcessResult(row=row, links=links)

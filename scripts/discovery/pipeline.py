@@ -1,6 +1,7 @@
 """
 Pipeline orchestration helpers for CoSE Pulse Discovery Engine.
 """
+
 import sys
 from pathlib import Path
 
@@ -9,7 +10,7 @@ DATABASE_DIR = PROJECT_ROOT / "scripts" / "database"
 
 if str(DATABASE_DIR) not in sys.path:
     sys.path.insert(0, str(DATABASE_DIR))
-    
+
 
 from change_detector import classify_changes, load_snapshot
 from exporter import save_discovered_pages

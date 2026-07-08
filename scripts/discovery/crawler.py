@@ -41,6 +41,7 @@ SNAPSHOT_FILE = OUTPUT_DIR / "snapshot.csv"
 # Main
 # ------------------------------------------------------------
 
+
 def main():
     print("=" * 60)
     print("CoSE Pulse Discovery Engine")

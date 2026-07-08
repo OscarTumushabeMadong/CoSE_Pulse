@@ -34,11 +34,7 @@ def load_snapshot(snapshot_file: Path) -> dict:
 
     with snapshot_file.open("r", newline="", encoding="utf-8") as file:
         reader = csv.DictReader(file)
-        return {
-            row["URL"]: row
-            for row in reader
-            if row.get("URL")
-        }
+        return {row["URL"]: row for row in reader if row.get("URL")}
 
 
 def classify_changes(current_rows: list[dict], previous_rows: dict) -> list[dict]:

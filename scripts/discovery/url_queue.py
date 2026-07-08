@@ -62,15 +62,9 @@ DISCOVERED_PAGES_FILE = OUTPUT_DIR / "discovered_pages.csv"
 
 def fetch_page(url: str) -> str:
 
-    headers = {
-        "User-Agent": USER_AGENT
-    }
+    headers = {"User-Agent": USER_AGENT}
 
-    response = requests.get(
-        url,
-        headers=headers,
-        timeout=TIMEOUT
-    )
+    response = requests.get(url, headers=headers, timeout=TIMEOUT)
 
     response.raise_for_status()
 
@@ -94,7 +88,6 @@ def extract_links(base_url: str, html: str) -> set[str]:
     discovered = set()
 
     for tag in soup.find_all("a", href=True):
-
         absolute = urljoin(base_url, tag["href"])
 
         absolute = normalize_url(absolute)
@@ -122,7 +115,6 @@ def crawl() -> list[dict]:
         queue.append((normalize_url(url), 0))
 
     while queue and len(visited) < MAX_PAGES:
-
         url, depth = queue.popleft()
 
         if url in visited:
@@ -136,35 +128,22 @@ def crawl() -> list[dict]:
         visited.add(url)
 
         try:
-
             html = fetch_page(url)
 
         except Exception as e:
-
             print(f"ERROR: {url}")
 
             print(e)
 
             continue
 
-        discovered_rows.append({
-
-            "URL": url,
-
-            "Depth": depth,
-
-            "Status": "Discovered"
-
-        })
+        discovered_rows.append({"URL": url, "Depth": depth, "Status": "Discovered"})
 
         if html:
-
             links = extract_links(url, html)
 
             for link in sorted(links):
-
                 if link not in visited:
-
                     queue.append((link, depth + 1))
 
         time.sleep(REQUEST_DELAY)
@@ -179,28 +158,8 @@ def crawl() -> list[dict]:
 
 def save_csv(rows: list[dict]):
 
-    with open(
-        DISCOVERED_PAGES_FILE,
-        "w",
-        newline="",
-        encoding="utf-8"
-    ) as file:
-
-        writer = csv.DictWriter(
-
-            file,
-
-            fieldnames=[
-
-                "URL",
-
-                "Depth",
-
-                "Status"
-
-            ]
-
-        )
+    with open(DISCOVERED_PAGES_FILE, "w", newline="", encoding="utf-8") as file:
+        writer = csv.DictWriter(file, fieldnames=["URL", "Depth", "Status"])
 
         writer.writeheader()
 

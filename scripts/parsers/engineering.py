@@ -24,7 +24,9 @@ def parse_engineering(department, category, url, soup):
         phone = normalize_phone(text)
 
         office = ""
-        office_match = re.search(r"Office:\s*([^|]+?)(?:Phone:|Email:|Fax:|$)", text, re.I)
+        office_match = re.search(
+            r"Office:\s*([^|]+?)(?:Phone:|Email:|Fax:|$)", text, re.I
+        )
         if office_match:
             office = office_match.group(1)
 
@@ -38,6 +40,8 @@ def parse_engineering(department, category, url, soup):
         title = re.sub(r"Email:.*", "", title, flags=re.I)
         title = clean(title)
 
-        rows.append(make_row(department, category, name, title, email, phone, office, url))
+        rows.append(
+            make_row(department, category, name, title, email, phone, office, url)
+        )
 
     return rows

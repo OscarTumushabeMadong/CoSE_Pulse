@@ -22,27 +22,19 @@ def build_discovered_row(
         "URL": url,
         "Title": content["title"],
         "Headings": " | ".join(content["headings"]),
-        "Summary": (
-            content["paragraphs"][0][:300]
-            if content["paragraphs"]
-            else ""
-        ),
-
+        "Summary": (content["paragraphs"][0][:300] if content["paragraphs"] else ""),
         "Page Title": metadata["Page Title"],
         "H1": metadata["H1"],
         "Meta Description": metadata["Meta Description"],
         "Canonical URL": metadata["Canonical URL"],
-
         "Depth": depth,
         "Status": status,
         "Department": department,
         "Category": category,
         "Classification Confidence": classification_confidence,
-
         "Emails Found": metadata["Emails Found"],
         "Phones Found": metadata["Phones Found"],
         "Dates Found": metadata["Dates Found"],
-
         "Opportunity Type": opportunity["Opportunity Type"],
         "Deadline": opportunity["Deadline"],
         "Times Found": opportunity["Times Found"],

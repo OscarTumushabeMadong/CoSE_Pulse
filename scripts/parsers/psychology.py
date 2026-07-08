@@ -39,7 +39,10 @@ def parse_psychology(department, category, url, soup):
 
         if is_bad_name(name):
             # Try last-name-first pattern from text.
-            name_match = re.search(r"\b([A-Z][a-zA-Z'’.-]+,\s+[A-Z][a-zA-Z'’.-]+(?:\s+[A-Z][a-zA-Z'’.-]+)?)\b", text)
+            name_match = re.search(
+                r"\b([A-Z][a-zA-Z'’.-]+,\s+[A-Z][a-zA-Z'’.-]+(?:\s+[A-Z][a-zA-Z'’.-]+)?)\b",
+                text,
+            )
             name = name_match.group(1) if name_match else ""
 
         if is_bad_name(name):
@@ -49,7 +52,9 @@ def parse_psychology(department, category, url, soup):
         phone = normalize_phone(text)
 
         office = ""
-        office_match = re.search(r"\b(?:EP|HSS|SCI|TH|BH|BUS|FA|HH|SEC)\s*\d+[A-Z]?\b", text)
+        office_match = re.search(
+            r"\b(?:EP|HSS|SCI|TH|BH|BUS|FA|HH|SEC)\s*\d+[A-Z]?\b", text
+        )
         if office_match:
             office = office_match.group(0)
 

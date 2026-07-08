@@ -102,7 +102,10 @@ def normalize_rows(rows: list[dict]) -> list[dict]:
         row["Generic Email"] = "Yes" if is_generic_email(row.get("Email", "")) else "No"
 
         if row["Generic Email"] == "Yes":
-            row["Notes"] = (row.get("Notes", "") + " Generic departmental email; do not treat as personal contact.").strip()
+            row["Notes"] = (
+                row.get("Notes", "")
+                + " Generic departmental email; do not treat as personal contact."
+            ).strip()
 
         normalized.append(row)
 

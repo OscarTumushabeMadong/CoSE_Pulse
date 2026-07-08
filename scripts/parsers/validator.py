@@ -33,6 +33,7 @@ TITLE_WORDS = [
 EMAIL_RE = re.compile(r".+@.+")
 PHONE_RE = re.compile(r"\d{3}[- )]\d{3}")
 
+
 def confidence(row):
 
     score = 0
@@ -57,24 +58,25 @@ def confidence(row):
     if any(word.lower() in title.lower() for word in TITLE_WORDS):
         score += 5
 
-    return min(score,100)
+    return min(score, 100)
+
 
 def bad_name(name):
 
     name = name.lower()
 
     for pattern in BAD_NAME_PATTERNS:
-        if re.search(pattern,name):
+        if re.search(pattern, name):
             return True
 
     return False
+
 
 def validate(rows):
 
     cleaned = []
 
     for row in rows:
-
         if bad_name(row["Name"]):
             continue
 

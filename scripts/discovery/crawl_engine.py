@@ -10,6 +10,7 @@ from crawl_worker import CrawlWorker
 from crawl_statistics import CrawlStatistics
 from discovery_config import DiscoveryConfig
 
+
 class CrawlEngine:
     def __init__(self, config: DiscoveryConfig = None):
         self.config = config or DiscoveryConfig()
@@ -19,7 +20,7 @@ class CrawlEngine:
 
     def run(self) -> list[dict]:
         self.stats.start()
-        
+
         discovered_rows = []
 
         while self.scheduler.has_next():

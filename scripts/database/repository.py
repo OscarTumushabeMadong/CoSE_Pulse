@@ -36,28 +36,23 @@ class Repository:
                 row["Title"],
                 row["Headings"],
                 row["Summary"],
-
                 row["Page Title"],
                 row["H1"],
                 row["Meta Description"],
                 row["Canonical URL"],
-
                 row["Depth"],
                 row["Status"],
                 row["Department"],
                 row["Category"],
                 row["Classification Confidence"],
-
                 row["Emails Found"],
                 row["Phones Found"],
                 row["Dates Found"],
-
                 row["Opportunity Type"],
                 row["Deadline"],
                 row["Times Found"],
                 row["Amounts Found"],
                 row["Priority"],
-
                 row["Change Status"],
                 row["Content Hash"],
             ),

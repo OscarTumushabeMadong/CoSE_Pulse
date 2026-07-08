@@ -1,8 +1,6 @@
-
 import time
 import sys
 from pathlib import Path
-import time
 import requests
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -13,19 +11,14 @@ if str(DATABASE_DIR) not in sys.path:
 
 from models import FetchResult
 
+
 def fetch_page(url: str, config) -> FetchResult:
-    headers = {
-        "User-Agent": config.user_agent
-    }
+    headers = {"User-Agent": config.user_agent}
 
     start = time.perf_counter()
 
     try:
-        response = requests.get(
-            url,
-            headers=headers,
-            timeout=config.timeout
-        )
+        response = requests.get(url, headers=headers, timeout=config.timeout)
 
         elapsed = time.perf_counter() - start
 

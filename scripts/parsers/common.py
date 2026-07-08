@@ -46,7 +46,17 @@ def infer_contact_type(title: str, category: str) -> str:
         return "Department Chair"
     if "advisor" in text or "advising" in text:
         return "Advisor"
-    if any(x in text for x in ["coordinator", "assistant", "analyst", "specialist", "staff", "manager"]):
+    if any(
+        x in text
+        for x in [
+            "coordinator",
+            "assistant",
+            "analyst",
+            "specialist",
+            "staff",
+            "manager",
+        ]
+    ):
         return "Staff"
     if any(x in text for x in ["professor", "lecturer", "faculty"]):
         return "Faculty"

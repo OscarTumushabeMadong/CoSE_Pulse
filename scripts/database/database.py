@@ -15,8 +15,7 @@ class Database:
         connection = get_connection()
 
         connection.row_factory = lambda cursor, row: {
-            col[0]: row[idx]
-            for idx, col in enumerate(cursor.description)
+            col[0]: row[idx] for idx, col in enumerate(cursor.description)
         }
 
         cursor = connection.cursor()

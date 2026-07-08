@@ -6,13 +6,9 @@ import re
 from bs4 import BeautifulSoup
 
 
-EMAIL_PATTERN = re.compile(
-    r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}"
-)
+EMAIL_PATTERN = re.compile(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}")
 
-PHONE_PATTERN = re.compile(
-    r"(?:\+1\s*)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}"
-)
+PHONE_PATTERN = re.compile(r"(?:\+1\s*)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}")
 
 DATE_PATTERN = re.compile(
     r"\b(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)"

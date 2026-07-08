@@ -21,7 +21,11 @@ REVIEW_OUTPUT_FILE = OUTPUT_DIR / "sfsu_cose_contacts_review.csv"
 CLEAN_OUTPUT_FILE = OUTPUT_DIR / "sfsu_cose_contacts_clean.csv"
 
 SEED_PAGES = [
-    ("College of Science & Engineering", "Dean's Office", "https://cose.sfsu.edu/contact-us"),
+    (
+        "College of Science & Engineering",
+        "Dean's Office",
+        "https://cose.sfsu.edu/contact-us",
+    ),
     ("School of Engineering", "Staff", "https://engineering.sfsu.edu/staff"),
     ("School of Engineering", "Faculty", "https://engineering.sfsu.edu/faculty"),
     ("Computer Science", "People", "https://cs.sfsu.edu/people"),
@@ -31,14 +35,16 @@ SEED_PAGES = [
     ("Mathematics", "Staff", "https://math.sfsu.edu/staff"),
     ("Chemistry & Biochemistry", "Faculty", "https://chemistry.sfsu.edu/faculty/"),
     ("Psychology", "Faculty & Staff", "https://psychology.sfsu.edu/faculty-staff"),
-    ("Psychology", "Faculty Advisors", "https://psychology.sfsu.edu/faculty-faculty-advisors"),
+    (
+        "Psychology",
+        "Faculty Advisors",
+        "https://psychology.sfsu.edu/faculty-faculty-advisors",
+    ),
 ]
 
 
 def get_soup(url):
-    headers = {
-        "User-Agent": "Mozilla/5.0 academic-contact-research/1.0"
-    }
+    headers = {"User-Agent": "Mozilla/5.0 academic-contact-research/1.0"}
     response = requests.get(url, headers=headers, timeout=30)
     response.raise_for_status()
     return BeautifulSoup(response.text, "html.parser")
@@ -48,17 +54,62 @@ def parse_cose_deans(department, category, url, soup):
     text = clean(soup.get_text(" "))
 
     known_rows = [
-        ("Carmen Domingo", "Dean of College of Science & Engineering", "cdomingo@sfsu.edu", ""),
-        ("Ron Marzke", "Associate Dean of College of Science & Engineering", "marzke@sfsu.edu", ""),
-        ("Teaster Baird", "Associate Dean of College of Science & Engineering", "tbaird@sfsu.edu", ""),
-        ("Caroline Alcantara", "Assistant to the Dean", "caroline@sfsu.edu", "(415) 338-7660"),
+        (
+            "Carmen Domingo",
+            "Dean of College of Science & Engineering",
+            "cdomingo@sfsu.edu",
+            "",
+        ),
+        (
+            "Ron Marzke",
+            "Associate Dean of College of Science & Engineering",
+            "marzke@sfsu.edu",
+            "",
+        ),
+        (
+            "Teaster Baird",
+            "Associate Dean of College of Science & Engineering",
+            "tbaird@sfsu.edu",
+            "",
+        ),
+        (
+            "Caroline Alcantara",
+            "Assistant to the Dean",
+            "caroline@sfsu.edu",
+            "(415) 338-7660",
+        ),
         ("Elizabeth Detrich", "Personnel Analyst", "edetrich@sfsu.edu", ""),
-        ("Queenie Cheng", "Academic Admin Analyst", "qcheng@sfsu.edu", "(415) 405-3771"),
+        (
+            "Queenie Cheng",
+            "Academic Admin Analyst",
+            "qcheng@sfsu.edu",
+            "(415) 405-3771",
+        ),
         ("Lynne Hoang", "Employment Analyst", "lynnethi@sfsu.edu", "(415) 338-7696"),
-        ("Crystal Kam", "College Business Officer", "crystalk@sfsu.edu", "(415) 338-2427"),
-        ("Nicholas Christopher Kincaid", "Lead Accounting Specialist", "nicholas@sfsu.edu", ""),
-        ("Jennifer Mueller", "Personnel Officer", "muellerj@sfsu.edu", "(415) 338-7659"),
-        ("Lannie Nguyen", "Administrative & Events Assistant", "lannie@sfsu.edu", "(415) 338-7662"),
+        (
+            "Crystal Kam",
+            "College Business Officer",
+            "crystalk@sfsu.edu",
+            "(415) 338-2427",
+        ),
+        (
+            "Nicholas Christopher Kincaid",
+            "Lead Accounting Specialist",
+            "nicholas@sfsu.edu",
+            "",
+        ),
+        (
+            "Jennifer Mueller",
+            "Personnel Officer",
+            "muellerj@sfsu.edu",
+            "(415) 338-7659",
+        ),
+        (
+            "Lannie Nguyen",
+            "Administrative & Events Assistant",
+            "lannie@sfsu.edu",
+            "(415) 338-7662",
+        ),
         ("Adria O'Dea", "Graphics Coordinator", "adria@sfsu.edu", ""),
         ("Nam Pham", "Fiscal Operations Specialist", "npham9@sfsu.edu", ""),
         ("Dominic Sciucchetti", "Operations Coordinator", "dominics@sfsu.edu", ""),
@@ -138,7 +189,9 @@ def deduplicate(rows):
             continue
 
         score = sum(bool(row.get(k)) for k in ["Name", "Title", "Phone", "Office"])
-        score += {"Clean": 3, "Partial": 2, "Needs Review": 1}.get(row.get("Quality", ""), 0)
+        score += {"Clean": 3, "Partial": 2, "Needs Review": 1}.get(
+            row.get("Quality", ""), 0
+        )
 
         if email not in seen or score > seen[email][0]:
             seen[email] = (score, row)
@@ -193,14 +246,10 @@ def main():
     raw_rows = normalize_rows(deduplicate(all_rows))
     validated_rows = validate(raw_rows)
 
-    clean_rows = [
-        row for row in validated_rows
-        if int(row.get("Confidence", 0)) >= 80
-    ]
+    clean_rows = [row for row in validated_rows if int(row.get("Confidence", 0)) >= 80]
 
     review_rows = [
-        row for row in validated_rows
-        if 50 <= int(row.get("Confidence", 0)) < 80
+        row for row in validated_rows if 50 <= int(row.get("Confidence", 0)) < 80
     ]
 
     write_csv(RAW_OUTPUT_FILE, raw_rows, fieldnames)

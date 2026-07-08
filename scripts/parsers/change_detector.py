@@ -11,18 +11,12 @@ def load_previous_snapshot(snapshot_file: Path) -> dict:
 
     with snapshot_file.open("r", newline="", encoding="utf-8") as file:
         reader = csv.DictReader(file)
-        return {
-            row[KEY_FIELD].lower(): row
-            for row in reader
-            if row.get(KEY_FIELD)
-        }
+        return {row[KEY_FIELD].lower(): row for row in reader if row.get(KEY_FIELD)}
 
 
 def detect_changes(current_rows: list[dict], previous_rows: dict) -> list[dict]:
     current_by_email = {
-        row[KEY_FIELD].lower(): row
-        for row in current_rows
-        if row.get(KEY_FIELD)
+        row[KEY_FIELD].lower(): row for row in current_rows if row.get(KEY_FIELD)
     }
 
     results = []
@@ -43,7 +37,9 @@ def detect_changes(current_rows: list[dict], previous_rows: dict) -> list[dict]:
 
         if changed_fields:
             row["Change Status"] = "Updated"
-            row["Notes"] = (row.get("Notes", "") + f" Changed fields: {', '.join(changed_fields)}.").strip()
+            row["Notes"] = (
+                row.get("Notes", "") + f" Changed fields: {', '.join(changed_fields)}."
+            ).strip()
         else:
             row["Change Status"] = "Unchanged"
 

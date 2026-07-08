@@ -14,10 +14,8 @@ VERSION = "2.0.0"
 # -----------------------------
 
 SEED_DOMAINS = [
-
     # Primary
     "https://cose.sfsu.edu",
-
     # CoSE Departments
     "https://engineering.sfsu.edu",
     "https://cs.sfsu.edu",
@@ -26,10 +24,8 @@ SEED_DOMAINS = [
     "https://chemistry.sfsu.edu",
     "https://physics.sfsu.edu",
     "https://psychology.sfsu.edu",
-
     # Strategic Sources
     "https://asi.sfsu.edu",
-
     # University
     "https://www.sfsu.edu",
     "https://news.sfsu.edu",
@@ -40,7 +36,6 @@ SEED_DOMAINS = [
 # -----------------------------
 
 ALLOWED_DOMAINS = [
-
     "cose.sfsu.edu",
     "engineering.sfsu.edu",
     "cs.sfsu.edu",
@@ -49,9 +44,7 @@ ALLOWED_DOMAINS = [
     "chemistry.sfsu.edu",
     "physics.sfsu.edu",
     "psychology.sfsu.edu",
-
     "asi.sfsu.edu",
-
     "www.sfsu.edu",
     "news.sfsu.edu",
 ]
@@ -61,7 +54,6 @@ ALLOWED_DOMAINS = [
 # -----------------------------
 
 IGNORE_EXTENSIONS = [
-
     ".pdf",
     ".jpg",
     ".jpeg",

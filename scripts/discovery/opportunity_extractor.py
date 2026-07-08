@@ -14,13 +14,9 @@ DEADLINE_PATTERN = re.compile(
     re.IGNORECASE,
 )
 
-TIME_PATTERN = re.compile(
-    r"\b\d{1,2}:\d{2}\s?(?:AM|PM|am|pm)\b"
-)
+TIME_PATTERN = re.compile(r"\b\d{1,2}:\d{2}\s?(?:AM|PM|am|pm)\b")
 
-MONEY_PATTERN = re.compile(
-    r"\$\s?\d{1,3}(?:,\d{3})*(?:\.\d{2})?"
-)
+MONEY_PATTERN = re.compile(r"\$\s?\d{1,3}(?:,\d{3})*(?:\.\d{2})?")
 
 
 def clean_text(text: str) -> str:
@@ -67,7 +63,9 @@ def extract_opportunity_details(html: str, category: str) -> dict:
     if deadline or "urgent" in lower_text or "apply now" in lower_text:
         priority = "High"
 
-    if "deadline" in lower_text and ("scholarship" in lower_text or "internship" in lower_text):
+    if "deadline" in lower_text and (
+        "scholarship" in lower_text or "internship" in lower_text
+    ):
         priority = "High"
 
     return {
