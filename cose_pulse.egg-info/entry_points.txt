@@ -1,0 +1,2 @@
+[console_scripts]
+cose-pulse = cose_pulse.discovery.crawler:main

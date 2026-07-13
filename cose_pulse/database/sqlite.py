@@ -5,7 +5,7 @@ SQLite connection and initialization utilities for CoSE Pulse.
 import sqlite3
 from pathlib import Path
 
-from schema import CREATE_TABLES
+from cose_pulse.database.schema import CREATE_TABLES
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]

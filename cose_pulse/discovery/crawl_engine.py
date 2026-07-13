@@ -5,10 +5,10 @@ Owns the main crawl loop.
 """
 
 import time
-from crawl_scheduler import CrawlScheduler
-from crawl_worker import CrawlWorker
-from crawl_statistics import CrawlStatistics
-from discovery_config import DiscoveryConfig
+from cose_pulse.discovery.crawl_scheduler import CrawlScheduler
+from cose_pulse.discovery.crawl_worker import CrawlWorker
+from cose_pulse.discovery.crawl_statistics import CrawlStatistics
+from cose_pulse.discovery.discovery_config import DiscoveryConfig
 
 
 class CrawlEngine:

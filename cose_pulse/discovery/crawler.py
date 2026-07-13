@@ -2,36 +2,26 @@
 CoSE Pulse Discovery Engine entry point.
 """
 
-import sys
-from pathlib import Path
+from cose_pulse.services.discovery_service import DiscoveryService
 
 
 # ------------------------------------------------------------
 # Configure Python path
 # ------------------------------------------------------------
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
-SCRIPTS_DIR = PROJECT_ROOT / "scripts"
-SERVICES_DIR = PROJECT_ROOT / "scripts" / "services"
-DATABASE_DIR = PROJECT_ROOT / "scripts" / "database"
-
-for path in [PROJECT_ROOT, SCRIPTS_DIR, SERVICES_DIR, DATABASE_DIR]:
-    if str(path) not in sys.path:
-        sys.path.insert(0, str(path))
-
-
-from database import Database
-from repository import Repository
-from discovery_service import DiscoveryService
+from cose_pulse.database.database import Database
+from cose_pulse.database.repository import Repository
 
 
 # ------------------------------------------------------------
 # Output paths
 # ------------------------------------------------------------
+from pathlib import Path
 
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 OUTPUT_DIR = PROJECT_ROOT / "output"
-OUTPUT_DIR.mkdir(exist_ok=True)
+OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 DISCOVERED_PAGES_FILE = OUTPUT_DIR / "discovered_pages.csv"
 SNAPSHOT_FILE = OUTPUT_DIR / "snapshot.csv"

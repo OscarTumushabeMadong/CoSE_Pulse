@@ -37,6 +37,30 @@ CREATE TABLE IF NOT EXISTS discovered_pages (
 );
 """
 
+CREATE_CATEGORY_INDEX = """
+CREATE INDEX IF NOT EXISTS idx_discovered_pages_category
+ON discovered_pages(category);
+"""
+
+CREATE_DEPARTMENT_INDEX = """
+CREATE INDEX IF NOT EXISTS idx_discovered_pages_department
+ON discovered_pages(department);
+"""
+
+CREATE_PRIORITY_INDEX = """
+CREATE INDEX IF NOT EXISTS idx_discovered_pages_priority
+ON discovered_pages(priority);
+"""
+
+CREATE_CHANGE_STATUS_INDEX = """
+CREATE INDEX IF NOT EXISTS idx_discovered_pages_change_status
+ON discovered_pages(change_status);
+"""
+
 CREATE_TABLES = [
     CREATE_DISCOVERED_PAGES_TABLE,
+    CREATE_CATEGORY_INDEX,
+    CREATE_DEPARTMENT_INDEX,
+    CREATE_PRIORITY_INDEX,
+    CREATE_CHANGE_STATUS_INDEX,
 ]

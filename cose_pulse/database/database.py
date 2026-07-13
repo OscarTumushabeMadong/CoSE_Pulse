@@ -1,4 +1,4 @@
-from sqlite import get_connection
+from cose_pulse.database.sqlite import get_connection
 
 
 class Database:

@@ -6,7 +6,7 @@ from urllib.parse import urljoin
 
 from bs4 import BeautifulSoup
 
-from filters import normalize_url, should_crawl
+from cose_pulse.discovery.filters import normalize_url, should_crawl
 
 
 def extract_links(base_url: str, html: str) -> set[str]:

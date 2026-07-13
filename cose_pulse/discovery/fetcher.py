@@ -1,15 +1,8 @@
 import time
-import sys
-from pathlib import Path
 import requests
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
-DATABASE_DIR = PROJECT_ROOT / "scripts" / "database"
 
-if str(DATABASE_DIR) not in sys.path:
-    sys.path.insert(0, str(DATABASE_DIR))
-
-from models import FetchResult
+from cose_pulse.database.models import FetchResult
 
 
 def fetch_page(url: str, config) -> FetchResult:

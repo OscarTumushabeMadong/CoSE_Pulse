@@ -2,19 +2,11 @@
 Pipeline orchestration helpers for CoSE Pulse Discovery Engine.
 """
 
-import sys
 from pathlib import Path
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
-DATABASE_DIR = PROJECT_ROOT / "scripts" / "database"
-
-if str(DATABASE_DIR) not in sys.path:
-    sys.path.insert(0, str(DATABASE_DIR))
-
-
-from change_detector import classify_changes, load_snapshot
-from exporter import save_discovered_pages
-from repository import Repository
+from cose_pulse.discovery.exporter import save_discovered_pages
+from cose_pulse.discovery.change_detector import classify_changes, load_snapshot
+from cose_pulse.database.repository import Repository
 
 
 def process_discovery_results(

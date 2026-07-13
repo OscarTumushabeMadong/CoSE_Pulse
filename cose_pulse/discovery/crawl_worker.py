@@ -2,10 +2,10 @@
 Processes a single page during crawling.
 """
 
-from fetcher import fetch_page
-from link_extractor import extract_links
-from page_processor import process_page
-from models import ProcessResult
+from cose_pulse.discovery.fetcher import fetch_page
+from cose_pulse.discovery.link_extractor import extract_links
+from cose_pulse.discovery.page_processor import process_page
+from cose_pulse.database.models import ProcessResult
 
 
 class CrawlWorker:

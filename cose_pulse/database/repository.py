@@ -2,7 +2,7 @@
 Database repository for CoSE Pulse.
 """
 
-from database import Database
+from cose_pulse.database.database import Database
 
 
 class Repository:

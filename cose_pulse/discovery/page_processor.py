@@ -6,12 +6,12 @@ classification, content extraction, metadata extraction, opportunity
 extraction, and priority scoring.
 """
 
-from classifier import classify_url, get_department
-from content_extractor import extract_page_content
-from metadata import extract_metadata
-from opportunity_extractor import extract_opportunity_details
-from prioritizer import calculate_priority
-from row_builder import build_discovered_row
+from cose_pulse.discovery.classifier import classify_url, get_department
+from cose_pulse.discovery.content_extractor import extract_page_content
+from cose_pulse.discovery.metadata import extract_metadata
+from cose_pulse.discovery.opportunity_extractor import extract_opportunity_details
+from cose_pulse.discovery.prioritizer import calculate_priority
+from cose_pulse.discovery.row_builder import build_discovered_row
 
 
 def process_page(
